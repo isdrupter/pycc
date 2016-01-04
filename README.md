@@ -13,10 +13,11 @@
                              `Y8P'   
                ~ Multi-threaded telnet command execution ~
                       ~ silentphoenix & shellzrus ~
-===============================
 </pre>
-# Usage
+===============================
 
+# Usage
+<pre>
 usage: pycc.py [-h] [-c CMD] [-l HOSTLIST]
 
 optional arguments:
@@ -24,7 +25,7 @@ optional arguments:
   -c CMD, --cmd CMD     Command to run on the hosts
   -l HOSTLIST, --hostlist HOSTLIST
                         List of hosts to manage
-
+</pre>
 # Set up
 
 * Create a file with your telnet hosts, one per line
