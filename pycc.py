@@ -20,7 +20,7 @@ hostlist = "" # initialize only \
 cmd = "" # ,grabbed through argparse
 semaphore = threading.Semaphore(50)
 prompt = "login: "
-passPrompt = "Password: "
+passPrompt = "password: "
 user = "username" # credentials
 password = "password"
 
@@ -51,10 +51,14 @@ def execute(cmd, hostlist):
     thread_holder = []
     count=0
     tcount=0
-    with open(hostlist) as f:
-        hostlist=[]
-        hostlist=f.readlines()
-        
+    try:
+        with open(hostlist) as f:
+            hostlist=[]
+            hostlist=f.readlines()
+    except:
+        print("Could not find list file!")
+        print("Use %s -h for help/usage." % file_name)
+        sys.exit(1)
         for host in hostlist:
             try:
                 threading.Thread(target=connect, args=(host,cmd )).start()
@@ -69,9 +73,9 @@ def execute(cmd, hostlist):
                 print("[*] %s threads running currently..." % activeThreads)
                 print("[*] Started %s theads total..." % tcount)
                 count=0
-             if tcount>=5000:
-                break
-                print("[!] 5000 Threads! Bailing!!!")
+                if tcount>=5000:
+                    break
+                    print("[!] 5000 Threads! Bailing!!!")
 
 
 def main():
