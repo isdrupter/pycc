@@ -1,5 +1,6 @@
 # Pyc&c
 ==============================
+<pre>
  ~ Command & Control via Python ~
        .o   .oooooooooo.                 .oooooo.    .oo.    .oooooo. 
       .8'  .8'`888   `Y88.             d8P'  `Y8b .88' `8.  d8P'  `Y8b
@@ -13,7 +14,7 @@
                ~ Multi-threaded telnet command execution ~
                       ~ silentphoenix & shellzrus ~
 ===============================
-
+</pre>
 # Usage
 
 usage: pycc.py [-h] [-c CMD] [-l HOSTLIST]
