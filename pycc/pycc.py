@@ -19,10 +19,10 @@ file_name = os.path.basename(sys.argv[0])
 hostlist = "" # initialize only \
 cmd = "" # ,grabbed through argparse
 semaphore = threading.Semaphore(50)
-prompt = "login: "
+prompt = "login: " # your host's prompt tp expect
 passPrompt = "Password: "
-user = "" # credentials
-password = ""
+user = "user" # your host's credentials
+password = "passs"
 
 def connect(host, cmd):
     try:
@@ -50,8 +50,7 @@ def execute(cmd, hostlist):
     threads=[]
     thread_holder = []
     count=0
-    tcount=0
-    
+    tcount=0    
     with open(hostlist) as f:
         hostlist=[]
         hostlist=f.readlines()
@@ -77,15 +76,22 @@ def execute(cmd, hostlist):
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('-c','--cmd',default='ifconfig eth1', help='Command to run on the hosts')
+    parser.add_argument('-c','--cmd',default='pwd', help='Command to run on the hosts')
     parser.add_argument('-l','--hostlist',default='lists/default.lst', help='List of hosts to manage')
     ns = parser.parse_args()
 
     cmd = ns.cmd if ns.cmd is not None else "default_cmd"
     hostlist = ns.hostlist if ns.hostlist is not None else "default_list"
-    
-    execute(cmd, hostlist)
+    # Make sure our host file exists
+    try:
+        f = open(hostlist, 'r')
+    except IOError:
+        print ("[!] Cannot open %s, does it exist?" % hostlist)
+        sys.exit(1)
+    else:
+        f.close()
 
+    execute(cmd, hostlist)
 
 
 if __name__ == '__main__':
