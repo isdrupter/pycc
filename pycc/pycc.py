@@ -24,14 +24,14 @@ prompt = "login: " # < set your prompt
 passPrompt = "Password: "
 user = "" # < set your credentials
 password = ""
-
+# try to pass hosts that cant connect/fail
 def connect(host, cmd):
     try:
         tn = telnetlib.Telnet(host)
     except:
         pass
     else:
-    #if not check: return # test connection
+
         try:
             tn.read_until(prompt)
             tn.write(user + "\n")
