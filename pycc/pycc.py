@@ -31,7 +31,7 @@ def connect(host, cmd):
     except:
         pass
     else:
-
+        # connect telnet
         try:
             tn.read_until(prompt)
             tn.write(user + "\n")
@@ -50,7 +50,6 @@ def connect(host, cmd):
 def execute(cmd, hostlist, maxThreads):
     print("[*] Maximum of %s threads specified..." % maxThreads)
     threads=[]
-    thread_holder = []
     count=0
     tcount=0
     #maxthreads=int(maxthreads)    
