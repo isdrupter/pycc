@@ -1,4 +1,4 @@
-# Pyc&c
+# PyCC (Python Command & Control)
 ==============================
 <pre>
  ~ Command & Control via Python ~
@@ -32,5 +32,8 @@ optional arguments:
 * Edit your credentials, prompts, etc
 * Run it.
 
+# Other Uses
+
+This program is a fine piece of python because you can also use it to handle other programs (like shell scripts, or netcat, etc). Just edit the host_functiom paremeters. Was originally multithreading telnet through expect, until I rewrote it to just use python (to conserve resources and for cleansliness).
 
 
