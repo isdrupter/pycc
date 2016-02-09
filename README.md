@@ -18,7 +18,7 @@
 
 # Usage
 <pre>
-usage: pycc.py [-h] [-c CMD] [-l HOSTLIST]
+usage: pycc.py [-h] [-c CMD] [-l HOSTLIST] [-t MAXTHREADS]
 
 optional arguments:
   -h, --help            show this help message and exit
