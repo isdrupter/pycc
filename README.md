@@ -36,6 +36,6 @@ optional arguments:
 
 # Other Uses
 
-This program is a fine piece of python because you can also use it to handle other programs (like shell scripts, or netcat, etc). Just edit the host_functiom paremeters. Was originally multithreading telnet through expect, until I rewrote it to just use python (to conserve resources and for cleansliness).
+This program is a fine piece of python because you can also use it to handle other programs (like shell scripts, or netcat, etc). Just edit the host_function paremeters. Was originally multithreading telnet through expect, until I rewrote it to just use python (to conserve resources and for cleansliness).
 
 
