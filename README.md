@@ -22,6 +22,8 @@ usage: pycc.py [-h] [-c CMD] [-l HOSTLIST]
 
 optional arguments:
   -h, --help            show this help message and exit
+  -t MAXTHREADS, --maxThreads 
+                        MAXTHREADS Max threads to allow before bailing
   -c CMD, --cmd CMD     Command to run on the hosts
   -l HOSTLIST, --hostlist HOSTLIST
                         List of hosts to manage
