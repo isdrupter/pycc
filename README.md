@@ -27,6 +27,12 @@ optional arguments:
   -c CMD, --cmd CMD     Command to run on the hosts
   -l HOSTLIST, --hostlist HOSTLIST
                 List of hosts to manage
+  -m MODE, --mode MODE  Mode: s/d (shell/daemon) Trap and send command to \
+                        background if daemonize
+  -T TIMEOUT, --timeout TIMEOUT
+                        Default telnet timeout Defaults to 60. Increase for \
+                        longer running commmands
+
 </pre>
 # Set up
 
