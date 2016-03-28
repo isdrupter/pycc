@@ -1,7 +1,7 @@
 # PyCC (Python Command & Control)
 ==============================
 <pre>
- ~ Command & Control via Python ~
+                     ~ Command & Control via Python ~
        .o   .oooooooooo.                 .oooooo.    .oo.    .oooooo. 
       .8'  .8'`888   `Y88.             d8P'  `Y8b .88' `8.  d8P'  `Y8b
   .888888888888888   .d88'oooo    ooo888         88.  .8' 888        
@@ -37,8 +37,8 @@ optional arguments:
 # Set up
 
 * Create a file with your telnet hosts, one per line
-* Edit your credentials, prompts, etc
-* Run it.
+* Edit your credentials and prompt (if needed)
+* Run it: python pycc -l listofzombies -t 500 -c 'uname -a'
 
 # Other Uses
 
