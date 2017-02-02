@@ -22,13 +22,14 @@ maxThreads = ""
 mode = ""
 timeout = ""
 semaphore = threading.Semaphore(50)
-prompt = "login: " # < set your prompt
+prompt = "ogin: " # < set your prompt
 passPrompt = "Password: "
 user = "admin" # < set your credentials
 password = "password"
 # try to pass hosts that cant connect/fail
 def connect(host, cmd, mode, timeout):
     timeout = int(timeout)
+    logging.info(host)
     try:
         tn = telnetlib.Telnet(host, 23, timeout)
     except:
@@ -44,10 +45,10 @@ def connect(host, cmd, mode, timeout):
                 tn.read_until(b'assword:', 10)
                 tn.write(password + "\n")
             if mode == "d":
-                print("[*] Running on daemon mode...")
+                print("[*] Sending daemonized command to %s ..." % host)
                 tn.write("trap '' 1;%s & \n" % cmd) # send daemonized command string
             else:
-                print("Running in shell mode")
+                print("[*] Sending command to %s ..." % host)
                 tn.write("%s \n" % cmd) # just send the command
             tn.write("exit\n") # finally send exit
             resp = tn.read_all()
@@ -82,7 +83,7 @@ def execute(cmd, hostlist, maxThreads, mode, timeout):
                 count=0 # reset count
             if tcount>int(maxThreads):
                 break
-                print("[*] Bailing because reached max threads (%s)" % maxThreads) # should never see this error
+                print("[*] Bailing because reached max threads (%s)" % maxThreads) # should never actually see this error
 
 
 def main():
@@ -90,8 +91,8 @@ def main():
     parser.add_argument('-c','--cmd',default='pwd', help='Command to run on the hosts')
     parser.add_argument('-l','--hostlist',default='lists/default.lst', help='List of hosts to manage')
     parser.add_argument('-t','--maxThreads',default='500', help='Max threads to allow before bailing')
-    parser.add_argument('-m','--mode',default='shell', help='Mode: s/d (shell/daemon) Trap and send command to background if daemonize')
-    parser.add_argument('-T','--timeout',default='60', help='Default telnet timeout Defaults to 60. Increase for longer running commmands')
+    parser.add_argument('-m','--mode',default='shell', help='Mode: s/d (shell/daemon) Trap and send command to background if daemonize. Defaults to shell')
+    parser.add_argument('-T','--timeout',default='60', help='Default telnet timeout Defaults to 60. Increase for longer running commmands. Defaults to 60')
     ns = parser.parse_args()
 
     cmd = ns.cmd if ns.cmd is not None else "default_cmd"
