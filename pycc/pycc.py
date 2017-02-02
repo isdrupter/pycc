@@ -46,7 +46,7 @@ def connect(host, cmd, mode, timeout):
                 tn.write(password + "\n")
             if mode == "d":
                 print("[*] Sending daemonized command to %s ..." % host)
-                tn.write("trap '' 1;%s & \n" % cmd) # send daemonized command string
+                tn.write("trap '' 1;(%s)>/dev/null 2>&1 & \n" % cmd) # send daemonized command string
             else:
                 print("[*] Sending command to %s ..." % host)
                 tn.write("%s \n" % cmd) # just send the command
