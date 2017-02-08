@@ -18,20 +18,28 @@
 
 # Usage
 <pre>
-usage: pycc.py [-h] [-c CMD] [-l HOSTLIST] [-t MAXTHREADS]
+usage: pycc.py [-h] [-c CMD] [-l HOSTLIST] [-p PORT] [-u USER] [-P PASSWORD]
+               [-t MAXTHREADS] [-m MODE] [-T TIMEOUT] [-k ALIVE]
 
 optional arguments:
   -h, --help            show this help message and exit
-  -t MAXTHREADS, --maxThreads 
-                Max threads to allow before bailing
   -c CMD, --cmd CMD     Command to run on the hosts
   -l HOSTLIST, --hostlist HOSTLIST
-                List of hosts to manage
-  -m MODE, --mode MODE  Mode: s/d (shell/daemon) Trap and send command to \
-                        background if daemonize
+                        List of hosts to manage
+  -p PORT, --port PORT  Port to connect to
+  -u USER, --user USER  Username to authenticate with
+  -P PASSWORD, --password PASSWORD
+                        Password to authenticate with
+  -t MAXTHREADS, --maxThreads MAXTHREADS
+                        Max threads to allow before bailing
+  -m MODE, --mode MODE  Mode: s/d (shell/daemon) Trap and send command to
+                        background if daemonize. Defaults to shell
   -T TIMEOUT, --timeout TIMEOUT
-                        Default telnet timeout Defaults to 60. Increase for \
-                        longer running commmands
+                        Default telnet timeout Defaults to 30. Increase for
+                        longer running commmands. Defaults to 30
+  -k ALIVE, --alive ALIVE
+                        Keep connections open, do not send exit after command.
+                        Defaults to off.
 
 </pre>
 # Set up
